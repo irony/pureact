@@ -1,21 +1,31 @@
 /** @jsx ljsx */
 import ljsx from '../lib/ljsx'
 import ldom from '../lib/ldom'
+import store from './store'
 
 import Header from './components/header'
 import Main from './components/main'
 import Footer from './components/footer'
 
-var user = { name: 'foo' }
-
-var main = function () {
+var main = function (props) {
   return (
     <div>
-      <Header user={user}/>
-      <Main/>
+      <Header/>
+      <Main {...props}/>
       <Footer/>
     </div>
   )
 }
 
-ldom.render(main(), document.getElementById('root'), document)
+store.subscribe((action, state) => {
+  console.log('action', action)
+  ldom.render(main, document.getElementById('root'), state)
+})
+
+// start the app
+store.dispatch({
+  type: 'START',
+  user: {
+    name: 'Christian Landgren'
+  }
+})
