@@ -1,11 +1,8 @@
 /** @jsx ljsx */
 import ljsx from '../../lib/ljsx'
+import { updateName } from '../actions/user'
 
 export default function (props) {
-  return (
-    <nav>
-      <div className='logo'>Logo</div>
-      <p>User: {props.user.name}</p>
-    </nav>
-  )
+  return (<input type='text' value={props.name}/>)
 }
+

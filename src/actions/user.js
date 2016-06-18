@@ -1,6 +1,7 @@
-export function updateName (name) {
+export function updateName (id, name) {
   return {
     type: 'UPDATE_NAME',
-    name: name
+    id,
+    name
   }
 }

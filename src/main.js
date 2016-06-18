@@ -10,7 +10,7 @@ import Footer from './components/footer'
 var main = function (props) {
   return (
     <div>
-      <Header/>
+      <Header {...props}/>
       <Main {...props}/>
       <Footer/>
     </div>
@@ -18,8 +18,8 @@ var main = function (props) {
 }
 
 store.subscribe((action, state) => {
-  console.log('action', action)
-  ldom.render(main, document.getElementById('root'), state)
+  console.log('subcribe', action)
+  ldom.render(main(state), document.getElementById('root'))
 })
 
 // start the app

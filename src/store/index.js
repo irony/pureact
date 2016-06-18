@@ -1,4 +1,5 @@
 import { createStore } from '../../lib/lstore'
 import app from '../reducers'
 
-export default createStore(app)
+var store = createStore(app)
+export default store
