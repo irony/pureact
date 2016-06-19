@@ -5,7 +5,7 @@ import { updateName } from '../actions/user'
 export default function (props) {
   return (
     name({...props, 
-      onkeyup: (e) => updateName(props.id, e.target.value)
+      onkeyup: (e) => updateName(e.target.value)
     })
   )
 }
@@ -13,7 +13,7 @@ export default function (props) {
 function name (props){
   return (
     <label>
-      Namn:
+      Your Name:
       <input type='text' onkeyup={props.onkeyup} value={props.name}/>
     </label>
   )

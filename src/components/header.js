@@ -5,7 +5,7 @@ export default function (props) {
   return (
     <nav>
       <div className='logo'>Logo</div>
-      <p>User: {props.user.name}</p>
+      <h1>Hello {props.user.name}</h1>
     </nav>
   )
 }
