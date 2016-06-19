@@ -1,9 +1,9 @@
 {
   "name": "ljs",
   "version": "0.1.0",
-  "private": true,
   "author": "Christian Landgren",
   "license": "MIT",
+  "repository": "https://github.com/irony/ljs",
   "dependencies": {
     "virtual-dom": "^2.1.1"
   },
