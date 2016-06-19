@@ -1,9 +1,9 @@
 {
-  "name": "ljs",
+  "name": "pureact",
   "version": "0.1.0",
   "author": "Christian Landgren",
   "license": "MIT",
-  "repository": "https://github.com/irony/ljs",
+  "repository": "https://github.com/irony/pureact",
   "main": "dist/bundle.js",
   "esnext:main": "index.js",
   "dependencies": {

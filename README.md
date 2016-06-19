@@ -4,12 +4,12 @@ Super lightweight react+redux lib with only one dependency (virtual-dom)
 
 ## Usage
 
-    npm install --save ljs
+    npm install --save pureact
 
 Add a comment on each file to use ljsx instead of JSX and import ljsx from l.js:
 
     /** @jsx ljsx */
-    import {ljsx, ldom} from 'ljs'
+    import {ljsx, ldom} from 'pureact'
 
 Then define your app with pure functions:
 
@@ -34,7 +34,7 @@ Then define your app with pure functions:
       )
     }
 
-A redux-compatible store is included:
+A lightweight redux-compatible store is included:
 
     import store from '../store'
 
