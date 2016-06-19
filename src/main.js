@@ -17,15 +17,12 @@ var main = function (props) {
   )
 }
 
-store.subscribe((action, state) => {
-  console.log('subcribe', action)
+store.subscribe(() => {
+  var state = store.getState()
   ldom.render(main(state), document.getElementById('root'))
 })
 
 // start the app
 store.dispatch({
-  type: 'START',
-  user: {
-    name: 'Christian Landgren'
-  }
+  type: 'START'
 })

@@ -5,19 +5,22 @@
   "author": "Christian Landgren",
   "license": "MIT",
   "dependencies": {
+    "oboy": "^1.2.0"
   },
   "devDependencies": {
-    "browserify": "11.0.1",
-    "watchify": "*",
     "babel": "5.6.x",
     "babelify": "6.1.x",
-    "mkdirp": "0.5.x"
+    "browserify": "11.0.1",
+    "mkdirp": "0.5.x",
+    "oboy": "^1.1.0",
+    "watchify": "*"
   },
   "scripts": {
-    "test": "npm run browserify && node dist/bundle.js",
+    "test": "./node_modules/.bin/mocha tests/* --compilers js:babel/register",
     "prebrowserify": "mkdirp dist",
     "browserify": "browserify src/main.js -t babelify --outfile dist/bundle.js",
     "watchify": "watchify src/main.js -t babelify --debug -o dist/bundle.js",
+    "watch": "./node_modules/.bin/mocha -w tests/* --compilers js:babel/register",
     "start": "npm install && npm run browserify && echo 'OPEN index.html IN YOUR BROWSER'"
   }
 }

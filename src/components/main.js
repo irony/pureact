@@ -5,7 +5,7 @@ import User from './user'
 export default function (props) {
   return (
     <div className='container'>
-      <User {...props.user} />
+      <User {...props.user } />
     </div>
   )
 }

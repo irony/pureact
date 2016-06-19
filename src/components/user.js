@@ -3,6 +3,19 @@ import ljsx from '../../lib/ljsx'
 import { updateName } from '../actions/user'
 
 export default function (props) {
-  return (<input type='text' value={props.name}/>)
+  return (
+    name({...props, 
+      onkeyup: (e) => updateName(props.id, e.target.value)
+    })
+  )
 }
 
+function name (props){
+  console.log('name', props)
+  return (
+    <label>
+      Namn:
+      <input type='text' onkeyup={props.onkeyup} value={props.name}/>
+    </label>
+  )
+}
