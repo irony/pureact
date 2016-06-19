@@ -5,7 +5,8 @@
   "author": "Christian Landgren",
   "license": "MIT",
   "dependencies": {
-    "oboy": "^1.2.0"
+    "oboy": "^1.2.0",
+    "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
     "babel": "5.6.x",

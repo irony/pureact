@@ -19,7 +19,8 @@ var main = function (props) {
 
 store.subscribe(() => {
   var state = store.getState()
-  ldom.render(main(state), document.getElementById('root'))
+  var tree = main(state)
+  ldom.render(tree, document.getElementById('root'))
 })
 
 // start the app

@@ -11,7 +11,6 @@ export default function (props) {
 }
 
 function name (props){
-  console.log('name', props)
   return (
     <label>
       Namn:
