@@ -54,10 +54,22 @@ A lightweight redux-compatible store is included:
         type: 'UPDATE_NAME',
         name
       })
-    } 
+    }
 
-## Compatible with the React ecosystem (coming soon...)
-When using this lib you can still add components from the React ecosystem, such as React-router etc. 
+Start it by listening to the store for changes:
+
+    store.subscribe(() => {
+      var state = store.getState()
+      var tree = main(state)
+      render(tree, document.getElementById('root'))
+    })
+
+    // start the app
+    store.dispatch({})
+
+
+## Compatible with the React ecosystem (not verified yet...)
+When using this lib you should still be able to add components from the React ecosystem, such as React-router etc. 
 
 ## Motivation
 
@@ -67,7 +79,7 @@ When using this lib you can still add components from the React ecosystem, such 
 - Control - too much magic going on inside the 560kb of included code in React
 
 ## Status: Experimental
-Basic stuff works surprisingly well - I haven't found any big hiccups yet but I wouldn't use this lib for anything near production yet.
+Basic stuff works surprisingly well - I haven't found any big hiccups yet but I wouldn't use this lib for anything near production yet. Please report issues. 
 
 
 ## License
