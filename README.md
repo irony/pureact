@@ -1,12 +1,18 @@
-# l.js
-Super lightweight react+redux lib with only one dependency (virtual-dom)
+# Pureact (pronounced "Pure React")
 
+Super lightweight (<100 lines) subset of react+redux lib with only two small dependencies (vdom+vtree)
+
+## Demo
+
+    git clone https://github.com/irony/pureact
+    cd pureact/example
+    npm start
 
 ## Usage
 
     npm install --save pureact
 
-Add a comment on each file to use ljsx instead of JSX and import ljsx from l.js:
+Add a comment on each file to use ljsx instead of JSX and import ljsx from Pureact:
 
     /** @jsx ljsx */
     import {ljsx, ldom} from 'pureact'

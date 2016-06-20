@@ -1,6 +1,5 @@
 /** @jsx ljsx */
-import ljsx from '../lib/ljsx'
-import ldom from '../lib/ldom'
+import { ljsx, render } from '../../'
 import store from './store'
 
 import Header from './components/header'
@@ -20,10 +19,8 @@ var main = function (props) {
 store.subscribe(() => {
   var state = store.getState()
   var tree = main(state)
-  ldom.render(tree, document.getElementById('root'))
+  render(tree, document.getElementById('root'))
 })
 
 // start the app
-store.dispatch({
-  type: 'START'
-})
+store.dispatch({})
