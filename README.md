@@ -1,6 +1,6 @@
 # Pureact (pronounced "Pure React")
 
-Super lightweight (<100 lines) subset of react+redux lib with only two small dependencies (vdom+vtree)
+Super lightweight (16kb) and superfast (based on vdom/vtree) subset of react+redux lib
 
 ## Demo
 
@@ -64,10 +64,10 @@ When using this lib you can still add components from the React ecosystem, such 
 - React takes forever to install
 - React includes too much code
 - Flux/Redux is a great idea but should be included
+- Control - too much magic going on inside the 560kb of included code in React
 
-## Sidenote
-
-Since this lib is only 100 lines of code you can as well just copy the contents of the bundle.js to 
+## Status: Experimental
+Basic stuff works surprisingly well - I haven't found any big hiccups yet but I wouldn't use this lib for anything near production yet.
 
 
 ## License
