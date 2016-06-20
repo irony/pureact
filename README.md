@@ -1,6 +1,6 @@
-# Pureact (pronounced "Pure React")
+# Pureact (pronounced "Pure React") - An experiment in react+redux
 
-Super lightweight (16kb) and superfast (based on vdom/vtree) subset of react+redux lib
+This is a try to simulate the main functionality in React with as few lines of code as possible and as few dependencies as possible. The result is a Super lightweight (16kb incl dependencies) and superfast (based on vdom/vtree) including the most essential parts of react+redux 
 
 ## Demo
 

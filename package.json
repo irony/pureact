@@ -4,7 +4,7 @@
   "author": "Christian Landgren",
   "license": "MIT",
   "repository": "https://github.com/irony/pureact",
-  "main": "dist/bundle.js",
+  "main": "index.js",
   "esnext:main": "index.js",
   "dependencies": {
     "vdom": "0.0.22",
@@ -22,8 +22,8 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/* --compilers js:babel/register",
     "prebrowserify": "mkdirp dist",
-    "build": "browserify index.js -t babelify -d -p [minifyify --map bundle.js.map --output dist/bundle.js.map] > dist/bundle.js",
-    "watchify": "watchify index.js -t babelify --debug -o dist/bundle.js",
+    "build": "browserify index.js -t babelify -d -p [minifyify --map pureact.js.map --output dist/pureact.js.map] > dist/pureact.js",
+    "watchify": "watchify index.js -t babelify --debug -o dist/pureact.js",
     "watch": "./node_modules/.bin/mocha -w tests/* --compilers js:babel/register",
     "prepublish": "npm run build"
   }

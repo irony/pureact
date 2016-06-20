@@ -1,5 +1,5 @@
-var ldom = require('./lib/ldom')
-var ljsx = require('./lib/ljsx')
-var lstore = require('./lib/lstore')
+import ldom from './lib/ldom'
+import ljsx from './lib/ljsx'
+import lstore from './lib/lstore'
 
-module.exports = { render: ldom.render, ljsx, createStore: lstore }
+export default {render: ldom.render, ljsx, createStore: lstore}

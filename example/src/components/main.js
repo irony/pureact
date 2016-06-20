@@ -1,5 +1,5 @@
 /** @jsx ljsx */
-import { ljsx } from 'pureact'
+import { ljsx } from '../../../'
 import User from './user'
 
 export default function (props) {
