@@ -1,4 +1,4 @@
-import { createStore } from '../../../'
+import { createStore } from 'pureact'
 import app from '../reducers'
 
 var store = createStore(app)

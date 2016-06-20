@@ -1,5 +1,5 @@
 /** @jsx ljsx */
-import { ljsx } from '../../../'
+import { ljsx } from 'pureact'
 import { updateName } from '../actions/user'
 
 export default function (props) {

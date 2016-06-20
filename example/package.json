@@ -4,6 +4,7 @@
   "author": "Christian Landgren",
   "license": "MIT",
   "dependencies": {
+    "pureact": "^0.3.0"
   },
   "devDependencies": {
     "mkdirp": "^0.5.1"

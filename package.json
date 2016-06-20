@@ -11,17 +11,18 @@
     "vtree": "0.0.22"
   },
   "devDependencies": {
-    "oboy": "^1.2.0",
     "babel": "5.6.x",
     "babelify": "6.1.x",
     "browserify": "11.0.1",
+    "minifyify": "^7.3.3",
     "mkdirp": "0.5.x",
+    "oboy": "^1.2.0",
     "watchify": "*"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/* --compilers js:babel/register",
     "prebrowserify": "mkdirp dist",
-    "build": "browserify index.js -t babelify --outfile dist/bundle.js",
+    "build": "browserify index.js -t babelify -d -p [minifyify --map bundle.js.map --output dist/bundle.js.map] > dist/bundle.js",
     "watchify": "watchify index.js -t babelify --debug -o dist/bundle.js",
     "watch": "./node_modules/.bin/mocha -w tests/* --compilers js:babel/register",
     "prepublish": "npm run build"
