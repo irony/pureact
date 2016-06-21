@@ -1,6 +1,6 @@
 {
   "name": "pureact",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "Christian Landgren",
   "license": "MIT",
   "repository": "https://github.com/irony/pureact",
@@ -20,9 +20,10 @@
     "watchify": "*"
   },
   "browserify": {
-    "transform": ["babelify"]
-  }, 
-
+    "transform": [
+      "babelify"
+    ]
+  },
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/* --compilers js:babel/register",
     "prebrowserify": "mkdirp dist",
