@@ -1,11 +1,11 @@
 const oboy = require('oboy')
-const {createStore} = require('../../')
+const pureact = require('../../')
 
 oboy((expect, sinon, describe, it) => {
   describe('store', () => {
     describe('with reducer', function () {
       const reducer = sinon.stub().returns({name: 'foo'})
-      const store = createStore(reducer)
+      const store = pureact.createStore(reducer)
 
       it('create store', () => {
         expect(store.getState()).to.have.property('name')
@@ -16,7 +16,7 @@ oboy((expect, sinon, describe, it) => {
       const user = sinon.stub().returns({name: 'foo'})
       const did = sinon.stub().returns({what: 'bar'})
       const reducer = (state, action) => ({user: user(), did: did()})
-      const store = createStore(reducer)
+      const store = pureact.createStore(reducer)
 
       it('create store', () => {
         expect(store.getState()).to.have.property('user')
@@ -27,7 +27,7 @@ oboy((expect, sinon, describe, it) => {
 
     describe('dispatch', function () {
       const reducer = sinon.stub().returns({name: 'foo'})
-      const store = createStore(reducer)
+      const store = pureact.createStore(reducer)
 
       it('dispatches initial data', () => {
         reducer.returns({name: 'christian'})
@@ -47,7 +47,7 @@ oboy((expect, sinon, describe, it) => {
           }
           return state
         }
-        const store = createStore(reducer)
+        const store = pureact.createStore(reducer)
         const action = { type: 'LEAVING', name: 'elvis', did: 'left', what: 'building' }
         store.dispatch(action)
         expect(store.getState().name).to.eql('elvis')
