@@ -6,13 +6,14 @@
   "dependencies": {
   },
   "devDependencies": {
-    "mkdirp": "^0.5.1"
-  },
-  "peerDependencies": {
+    "mkdirp": "^0.5.1",
     "babelify": "6.1.x",
     "browserify": "11.0.1",
     "watchify": "*"
   },
+  "browserify": {
+    "transform": ["babelify"]
+  }, 
   "scripts": {
     "prebrowserify": "mkdirp dist",
     "browserify": "browserify src/main.js -t babelify --outfile dist/bundle.js",

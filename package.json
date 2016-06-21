@@ -19,11 +19,15 @@
     "oboy": "^1.2.0",
     "watchify": "*"
   },
+  "browserify": {
+    "transform": ["babelify"]
+  }, 
+
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/* --compilers js:babel/register",
     "prebrowserify": "mkdirp dist",
-    "build": "browserify index.js -t babelify -d -p [minifyify --map pureact.js.map --output dist/pureact.js.map] > dist/pureact.js",
-    "watchify": "watchify index.js -t babelify --debug -o dist/pureact.js",
+    "build": "./node_modules/.bin/browserify index.js -t babelify -d -p [minifyify --map pureact.js.map --output dist/pureact.js.map] > dist/pureact.js",
+    "watchify": "./node_modules/.bin/watchify index.js -t babelify --debug -o dist/pureact.js",
     "watch": "./node_modules/.bin/mocha -w tests/* --compilers js:babel/register",
     "prepublish": "npm run build"
   }
