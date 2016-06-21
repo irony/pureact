@@ -1,4 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -6,7 +8,9 @@ Object.defineProperty(exports, '__esModule', {
 });
 exports.updateName = updateName;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _store = require('../store');
 
@@ -19,7 +23,7 @@ function updateName(name) {
   });
 }
 
-},{"../store":9}],2:[function(require,module,exports){
+},{"../store":10}],3:[function(require,module,exports){
 /** @jsx ljsx */
 'use strict';
 
@@ -30,20 +34,12 @@ Object.defineProperty(exports, '__esModule', {
 var _ = require('../../../');
 
 exports['default'] = function (props) {
-  return (0, _.ljsx)(
-    'nav',
-    null,
-    (0, _.ljsx)(
-      'div',
-      { className: 'footer' },
-      'Footer'
-    )
-  );
+  return (0, _.ljsx)('nav', null, (0, _.ljsx)('div', { className: 'footer' }, 'Footer'));
 };
 
 module.exports = exports['default'];
 
-},{"../../../":10}],3:[function(require,module,exports){
+},{"../../../":11}],4:[function(require,module,exports){
 /** @jsx ljsx */
 'use strict';
 
@@ -54,26 +50,12 @@ Object.defineProperty(exports, '__esModule', {
 var _ = require('../../../');
 
 exports['default'] = function (props) {
-  return (0, _.ljsx)(
-    'nav',
-    null,
-    (0, _.ljsx)(
-      'div',
-      { className: 'logo' },
-      'Logo'
-    ),
-    (0, _.ljsx)(
-      'h1',
-      null,
-      'Hello ',
-      props.user.name
-    )
-  );
+  return (0, _.ljsx)('nav', null, (0, _.ljsx)('div', { className: 'logo' }, 'Logo'), (0, _.ljsx)('h1', null, 'Hello ', props.user.name));
 };
 
 module.exports = exports['default'];
 
-},{"../../../":10}],4:[function(require,module,exports){
+},{"../../../":11}],5:[function(require,module,exports){
 /** @jsx ljsx */
 'use strict';
 
@@ -81,7 +63,9 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _ = require('../../../');
 
@@ -90,16 +74,12 @@ var _user = require('./user');
 var _user2 = _interopRequireDefault(_user);
 
 exports['default'] = function (props) {
-  return (0, _.ljsx)(
-    'div',
-    { className: 'container' },
-    (0, _.ljsx)(_user2['default'], props.user)
-  );
+  return (0, _.ljsx)('div', { className: 'container' }, (0, _.ljsx)(_user2['default'], props.user));
 };
 
 module.exports = exports['default'];
 
-},{"../../../":10,"./user":5}],5:[function(require,module,exports){
+},{"../../../":11,"./user":6}],6:[function(require,module,exports){
 /** @jsx ljsx */
 'use strict';
 
@@ -107,7 +87,15 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
 
 var _ = require('../../../');
 
@@ -122,20 +110,17 @@ exports['default'] = function (props) {
 };
 
 function name(props) {
-  return (0, _.ljsx)(
-    'label',
-    null,
-    'Your Name:',
-    (0, _.ljsx)('input', { type: 'text', onkeyup: props.onkeyup, value: props.name })
-  );
+  return (0, _.ljsx)('label', null, 'Your Name:', (0, _.ljsx)('input', { type: 'text', onkeyup: props.onkeyup, value: props.name }));
 }
 module.exports = exports['default'];
 
-},{"../../../":10,"../actions/user":1}],6:[function(require,module,exports){
+},{"../../../":11,"../actions/user":2}],7:[function(require,module,exports){
 /** @jsx ljsx */
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _ = require('../../');
 
@@ -156,13 +141,7 @@ var _componentsFooter = require('./components/footer');
 var _componentsFooter2 = _interopRequireDefault(_componentsFooter);
 
 var main = function main(props) {
-  return (0, _.ljsx)(
-    'div',
-    null,
-    (0, _.ljsx)(_componentsHeader2['default'], props),
-    (0, _.ljsx)(_componentsMain2['default'], props),
-    (0, _.ljsx)(_componentsFooter2['default'], null)
-  );
+  return (0, _.ljsx)('div', null, (0, _.ljsx)(_componentsHeader2['default'], props), (0, _.ljsx)(_componentsMain2['default'], props), (0, _.ljsx)(_componentsFooter2['default'], null));
 };
 
 _store2['default'].subscribe(function () {
@@ -174,14 +153,16 @@ _store2['default'].subscribe(function () {
 // start the app
 _store2['default'].dispatch({});
 
-},{"../../":10,"./components/footer":2,"./components/header":3,"./components/main":4,"./store":9}],7:[function(require,module,exports){
+},{"../../":11,"./components/footer":3,"./components/header":4,"./components/main":5,"./store":10}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _user = require('./user');
 
@@ -199,14 +180,22 @@ var app = function app(state, action) {
 exports['default'] = app;
 module.exports = exports['default'];
 
-},{"./user":8}],8:[function(require,module,exports){
+},{"./user":9}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
 
 var initialState = { name: 'World' };
 var user = function user(state, action) {
@@ -223,14 +212,16 @@ var user = function user(state, action) {
 exports['default'] = user;
 module.exports = exports['default'];
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _ = require('../../../');
 
@@ -242,14 +233,16 @@ var store = (0, _.createStore)(_reducers2['default']);
 exports['default'] = store;
 module.exports = exports['default'];
 
-},{"../../../":10,"../reducers":7}],10:[function(require,module,exports){
+},{"../../../":11,"../reducers":8}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
 var _libLdom = require('./lib/ldom');
 
@@ -266,16 +259,24 @@ var _libLstore2 = _interopRequireDefault(_libLstore);
 exports['default'] = { render: _libLdom2['default'].render, ljsx: _libLjsx2['default'], createStore: _libLstore2['default'] };
 module.exports = exports['default'];
 
-},{"./lib/ldom":11,"./lib/ljsx":12,"./lib/lstore":13}],11:[function(require,module,exports){
+},{"./lib/ldom":12,"./lib/ljsx":13,"./lib/lstore":14}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }return obj;
+}
 
 var _vtreeDiff = require('vtree/diff');
 
@@ -335,7 +336,7 @@ var omit = function omit(o, fields) {
 exports['default'] = dom;
 module.exports = exports['default'];
 
-},{"vdom/create-element":16,"vdom/patch":20,"vtree/diff":22,"vtree/vnode":31,"vtree/vtext":33}],12:[function(require,module,exports){
+},{"vdom/create-element":17,"vdom/patch":21,"vtree/diff":23,"vtree/vnode":32,"vtree/vtext":34}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -354,7 +355,7 @@ function ljsx(tagName, props) {
 
 module.exports = exports['default'];
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -386,7 +387,7 @@ function createStore(reducer, initialState) {
 
 module.exports = exports["default"];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function (global){
 var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
@@ -405,7 +406,7 @@ if (typeof document !== 'undefined') {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":35}],15:[function(require,module,exports){
+},{"min-document":1}],16:[function(require,module,exports){
 var isObject = require("is-object")
 var isHook = require("vtree/is-vhook")
 
@@ -499,7 +500,7 @@ function getPrototype(value) {
     }
 }
 
-},{"is-object":18,"vtree/is-vhook":25}],16:[function(require,module,exports){
+},{"is-object":19,"vtree/is-vhook":26}],17:[function(require,module,exports){
 var document = require("global/document")
 
 var applyProperties = require("./apply-properties")
@@ -547,7 +548,7 @@ function createElement(vnode, opts) {
     return node
 }
 
-},{"./apply-properties":15,"global/document":14,"vtree/handle-thunk":23,"vtree/is-vnode":26,"vtree/is-vtext":27,"vtree/is-widget":28}],17:[function(require,module,exports){
+},{"./apply-properties":16,"global/document":15,"vtree/handle-thunk":24,"vtree/is-vnode":27,"vtree/is-vtext":28,"vtree/is-widget":29}],18:[function(require,module,exports){
 // Maps a virtual DOM tree onto a real DOM tree in an efficient manner.
 // We don't want to read all of the DOM nodes in the tree so we use
 // the in-order tree indexing to eliminate recursion down certain branches.
@@ -634,14 +635,14 @@ function ascending(a, b) {
     return a > b ? 1 : -1
 }
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = isObject
 
 function isObject(x) {
     return typeof x === "object" && x !== null
 }
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var applyProperties = require("./apply-properties")
 
 var isWidget = require("vtree/is-widget")
@@ -811,7 +812,7 @@ function replaceRoot(oldRoot, newRoot) {
     return newRoot;
 }
 
-},{"./apply-properties":15,"./create-element":16,"./update-widget":21,"vtree/is-widget":28,"vtree/vpatch":32}],20:[function(require,module,exports){
+},{"./apply-properties":16,"./create-element":17,"./update-widget":22,"vtree/is-widget":29,"vtree/vpatch":33}],21:[function(require,module,exports){
 var document = require("global/document")
 var isArray = require("x-is-array")
 
@@ -889,7 +890,7 @@ function patchIndices(patches) {
     return indices
 }
 
-},{"./dom-index":17,"./patch-op":19,"global/document":14,"x-is-array":34}],21:[function(require,module,exports){
+},{"./dom-index":18,"./patch-op":20,"global/document":15,"x-is-array":35}],22:[function(require,module,exports){
 var isWidget = require("vtree/is-widget")
 
 module.exports = updateWidget
@@ -906,7 +907,7 @@ function updateWidget(a, b) {
     return false
 }
 
-},{"vtree/is-widget":28}],22:[function(require,module,exports){
+},{"vtree/is-widget":29}],23:[function(require,module,exports){
 var isArray = require("x-is-array")
 var isObject = require("is-object")
 
@@ -1248,7 +1249,7 @@ function appendPatch(apply, patch) {
     }
 }
 
-},{"./handle-thunk":23,"./is-thunk":24,"./is-vnode":26,"./is-vtext":27,"./is-widget":28,"./vpatch":32,"is-object":29,"x-is-array":34}],23:[function(require,module,exports){
+},{"./handle-thunk":24,"./is-thunk":25,"./is-vnode":27,"./is-vtext":28,"./is-widget":29,"./vpatch":33,"is-object":30,"x-is-array":35}],24:[function(require,module,exports){
 var isVNode = require("./is-vnode")
 var isVText = require("./is-vtext")
 var isWidget = require("./is-widget")
@@ -1290,14 +1291,14 @@ function renderThunk(thunk, previous) {
     return renderedThunk
 }
 
-},{"./is-thunk":24,"./is-vnode":26,"./is-vtext":27,"./is-widget":28}],24:[function(require,module,exports){
+},{"./is-thunk":25,"./is-vnode":27,"./is-vtext":28,"./is-widget":29}],25:[function(require,module,exports){
 module.exports = isThunk
 
 function isThunk(t) {
     return t && t.type === "Thunk"
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = isHook
 
 function isHook(hook) {
@@ -1305,7 +1306,7 @@ function isHook(hook) {
         !hook.hasOwnProperty("hook")
 }
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = isVirtualNode
@@ -1314,7 +1315,7 @@ function isVirtualNode(x) {
     return x && x.type === "VirtualNode" && x.version === version
 }
 
-},{"./version":30}],27:[function(require,module,exports){
+},{"./version":31}],28:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = isVirtualText
@@ -1323,19 +1324,19 @@ function isVirtualText(x) {
     return x && x.type === "VirtualText" && x.version === version
 }
 
-},{"./version":30}],28:[function(require,module,exports){
+},{"./version":31}],29:[function(require,module,exports){
 module.exports = isWidget
 
 function isWidget(w) {
     return w && w.type === "Widget"
 }
 
-},{}],29:[function(require,module,exports){
-arguments[4][18][0].apply(exports,arguments)
-},{"dup":18}],30:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
+arguments[4][19][0].apply(exports,arguments)
+},{"dup":19}],31:[function(require,module,exports){
 module.exports = "1"
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 var version = require("./version")
 var isVNode = require("./is-vnode")
 var isWidget = require("./is-widget")
@@ -1409,7 +1410,7 @@ function VirtualNode(tagName, properties, children, key, namespace) {
 VirtualNode.prototype.version = version
 VirtualNode.prototype.type = "VirtualNode"
 
-},{"./is-thunk":24,"./is-vhook":25,"./is-vnode":26,"./is-widget":28,"./version":30}],32:[function(require,module,exports){
+},{"./is-thunk":25,"./is-vhook":26,"./is-vnode":27,"./is-widget":29,"./version":31}],33:[function(require,module,exports){
 var version = require("./version")
 
 VirtualPatch.NONE = 0
@@ -1433,7 +1434,7 @@ function VirtualPatch(type, vNode, patch) {
 VirtualPatch.prototype.version = version
 VirtualPatch.prototype.type = "VirtualPatch"
 
-},{"./version":30}],33:[function(require,module,exports){
+},{"./version":31}],34:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = VirtualText
@@ -1445,7 +1446,7 @@ function VirtualText(text) {
 VirtualText.prototype.version = version
 VirtualText.prototype.type = "VirtualText"
 
-},{"./version":30}],34:[function(require,module,exports){
+},{"./version":31}],35:[function(require,module,exports){
 var nativeIsArray = Array.isArray
 var toString = Object.prototype.toString
 
@@ -1455,6 +1456,4 @@ function isArray(obj) {
     return toString.call(obj) === "[object Array]"
 }
 
-},{}],35:[function(require,module,exports){
-
-},{}]},{},[6]);
+},{}]},{},[7]);
