@@ -7,7 +7,8 @@
     "type": "git",
     "url": "https://github.com/irony/pureact"
   },
-  "main": "dist/bundle.js",
+  "main": "index.js",
+  "browser": "dist/bundle.js",
   "esnext:main": "index.js",
   "dependencies": {
     "vdom": "0.0.22",
@@ -22,6 +23,6 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/*",
     "watch": "./node_modules/.bin/mocha -w tests/*",
-    "prepublish": "browserify index.js  -t [ babelify --presets [ es2015 react ] ] -o dist/bundle.js"
+    "prepublish": "npm test && browserify index.js  -t [ babelify --presets [ es2015 react ] ] -o dist/bundle.js"
   }
 }
