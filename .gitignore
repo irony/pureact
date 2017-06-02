@@ -1,7 +1,5 @@
 node_modules
 npm-debug.log
-distyarn.lock
-dist
 yarn.lock
 example/dist
 example/dist/bundle.js
