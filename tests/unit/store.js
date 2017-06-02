@@ -1,7 +1,7 @@
 const oboy = require('oboy')
 const pureact = require('../../')
 
-oboy((expect, sinon, describe, it) => {
+oboy((expect, sinon) => {
   describe('store', () => {
     describe('with reducer', function () {
       const reducer = sinon.stub().returns({name: 'foo'})
