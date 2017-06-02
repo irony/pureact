@@ -8,13 +8,27 @@
     "url": "https://github.com/irony/pureact"
   },
   "main": "index.js",
-  "browser": "dist/bundle.js",
-  "esnext:main": "index.js",
   "dependencies": {
-    "vdom": "0.0.22",
-    "vtree": "0.0.22"
+    "vdom": "^0.0.22",
+    "vtree": "^0.0.22"
+  },
+  "browserify": {
+    "plugins": [],
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "react",
+            "es2015"
+          ]
+        }
+      ]
+    ]
   },
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
@@ -23,6 +37,7 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/*",
     "watch": "./node_modules/.bin/mocha -w tests/*",
-    "prepublish": "npm test && browserify index.js  -t [ babelify --presets [ es2015 react ] ] -o dist/bundle.js"
+    "build": "./node_modules/.bin/browserify index.js --outfile dist/bundle.js",
+    "prepublish": "npm test && npm run build"
   }
 }

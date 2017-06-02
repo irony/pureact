@@ -1,5 +1,9 @@
-var ldom = require('./lib/ldom')
-var ljsx = require('./lib/ljsx')
-var lstore = require('./lib/lstore')
+const render = require('./lib/render')
+const createElement = require('./lib/createElement')
+const createStore = require('./lib/createStore')
 
-module.exports = {render: ldom.render, ljsx, createStore: lstore}
+module.exports = {
+  render,
+  createElement,
+  createStore
+}

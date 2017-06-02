@@ -1,5 +1,5 @@
-/** @jsx ljsx */
-import { ljsx } from '../../../'
+/** @jsx createElement */
+import { createElement } from '../../../'
 
 export default function (props) {
   return (

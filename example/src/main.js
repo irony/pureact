@@ -1,12 +1,12 @@
-/** @jsx ljsx */
-import { ljsx, render } from '../../'
+/** @jsx createElement */
+import { createElement, render } from '../../'
 import store from './store'
 
 import Header from './components/header'
 import Main from './components/main'
 import Footer from './components/footer'
 
-var main = function (props) {
+const main = function (props) {
   return (
     <div>
       <Header {...props}/>
@@ -17,8 +17,8 @@ var main = function (props) {
 }
 
 store.subscribe(() => {
-  var state = store.getState()
-  var tree = main(state)
+  const state = store.getState()
+  const tree = main(state)
   render(tree, document.getElementById('root'))
 })
 

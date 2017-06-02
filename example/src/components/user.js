@@ -1,5 +1,5 @@
-/** @jsx ljsx */
-import { ljsx } from '../../../'
+/** @jsx createElement */
+import { createElement } from '../../../'
 import { updateName } from '../actions/user'
 
 export default function (props) {
@@ -10,7 +10,7 @@ export default function (props) {
   )
 }
 
-function name (props){
+function name (props) {
   return (
     <label>
       Your Name:
