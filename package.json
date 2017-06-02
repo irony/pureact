@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/irony/pureact"
   },
-  "main": "index.js",
+  "main": "dist/bundle.js",
   "dependencies": {
     "vdom": "^0.0.22",
     "vtree": "^0.0.22"
