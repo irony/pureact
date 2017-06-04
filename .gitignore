@@ -3,3 +3,4 @@ npm-debug.log
 yarn.lock
 example/dist
 example/dist/bundle.js
+lib
