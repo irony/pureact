@@ -1,11 +1,11 @@
-var render = require('../../lib/render')
-var oboy = require('oboy')
+const render = require('../../lib/render')
+const oboy = require('oboy')
 
-oboy((expect, should, sinon) => {
+oboy((expect, sinon) => {
   it('should render a tag with children', (done) => {
-    var nav = { tagName: 'nav', children: [] }
-    var div = { tagName: 'div', className: 'nav', children: [nav] }
-    var node = { appendChild: sinon.spy() }
+    const nav = { tagName: 'nav', children: [] }
+    const div = { tagName: 'div', className: 'nav', children: [nav] }
+    const node = { appendChild: sinon.spy(), children: [] }
     render(div, node)
     expect(node.appendChild).to.be.calledOnce
     done()

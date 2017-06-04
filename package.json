@@ -9,8 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "vdom": "^0.0.22",
-    "vtree": "^0.0.22"
+    "virtual-dom": "^2.1.1"
   },
   "browserify": {
     "plugins": [],

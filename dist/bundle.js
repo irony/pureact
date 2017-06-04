@@ -88,7 +88,7 @@ var omit = function omit(o, fields) {
 };
 
 function vtree(tree) {
-  if (!tree.tagName) return new VText(tree);
+  if (!tree || !tree.tagName) return new VText(tree);
   var props = omit(tree, ['element', 'children', 'tagName']);
   var children = tree.children && tree.children.map(function (child) {
     return vtree(child);
