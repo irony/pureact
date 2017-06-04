@@ -1,6 +1,6 @@
-const render = require('./lib/render')
-const createElement = require('./lib/createElement')
-const createStore = require('./lib/createStore')
+const render = require('./render')
+const createElement = require('./createElement')
+const createStore = require('./createStore')
 
 function Component() {
 //  setState () { throw new Error('Unsupported. Use props instead of component state') }
