@@ -1,5 +1,5 @@
 const oboy = require('oboy')
-const createStore= require('../../lib/createStore')
+const createStore = require('../../lib/createStore')
 
 oboy((expect, sinon) => {
   describe('store', () => {
