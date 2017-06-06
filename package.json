@@ -9,7 +9,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "virtual-dom": "^2.1.1"
+    "snabbdom": "^0.6.9"
   },
   "babel": {
     "presets": [
