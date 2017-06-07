@@ -1,11 +1,11 @@
 # Pureact (pronounced "Pure React") - An experiment in react+redux
 
-This is a try to simulate the main functionality in React with as few lines of code as possible and as few dependencies as possible. The result is a Super lightweight (16kb incl dependencies) and superfast (based on vdom/vtree) including the most essential parts of react+redux 
+This is very small implementation of the idea of React+Redux with a vanilla js approach. The result is a Super lightweight (14kb incl dependencies) and superfast (based on virtual-dom) including the most essential parts of react+redux 
 
 ## Demo
 
-    git clone https://github.com/irony/pureact
-    cd pureact/example
+    create-react-app my-app
+    cd my-app
     npm start
 
 ## Usage
