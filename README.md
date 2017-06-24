@@ -2,85 +2,81 @@
 
 This is very small implementation of the idea of React+Redux with a vanilla js approach. The result is a Super lightweight (14kb incl dependencies) and superfast (based on virtual-dom) including the most essential parts of react+redux 
 
-## Demo
+## Start with a blank React project
 
     create-react-app my-app
     cd my-app
-    npm start
+    yarn start
 
-## Usage
+## Replace React with Pureact
 
-    npm install --save pureact
+    yarn remove react react-dom
+    yarn add pureact
 
-Add a comment on each file to use ljsx instead of JSX and import ljsx from Pureact:
+Include Pureact instead of React in each file:
 
-    /** @jsx ljsx */
-    import {ljsx, ldom} from 'pureact'
+    import React from 'pureact'
+    import ReactDOM from 'pureact';
 
 Then define your app with pure functions:
 
-    var main = function (props) {
-      return (
-        <div>
-          <Header {...props}/>
-          <UserContainer {...props}/>
-          <Footer/>
-        </div>
-      )
+    import React, { Component } from 'pureact';
+    import logo from './logo.svg';
+    import './App.css';
+
+    class App extends Component {
+      render() {
+        return (
+          <div className="App">
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Welcome to React</h2>
+            </div>
+            <p className="App-intro">
+              To get started, edit <code>src/App.js</code> and save to reload.
+            </p>
+          </div>
+        );
+      }
     }
 
-...
+    export default App;
 
-    function UserContainer (props) {
-      return User({
-        ...props, 
-        onkeyup: (e) => updateName(e.target.value)
-      })
-    }
+## A lightweight redux-compatible store is also included:
 
-    function User (props){
-      return (
-        <label>
-          Your Name:
-          <input type='text' onkeyup={props.onkeyup} value={props.name}/>
-        </label>
-      )
-    }
+    import { createStore } from 'pureact';
+    
+    const reducer = (state, action) => ({
+      ...state,
+      name: action.name // naive example
+    })
 
-A lightweight redux-compatible store is included:
+    const store = createStore(reducer)
 
-    function updateName(name){
-      store.dispatch({
-        type: 'UPDATE_NAME',
-        name
-      })
-    }
+Plug it in in your render lifecycle:
 
-Start it by listening to the store for changes:
+    const App = (props) => <h1>{props.name}</h1>
 
     store.subscribe(() => {
       var state = store.getState()
-      var tree = main(state)
-      render(tree, document.getElementById('root'))
+      ReactDOM.render(<App {...state} />, document.getElementById('root'))
     })
 
-    // start the app
-    store.dispatch({})
+    // start the app by dispatching an empty event
+    store.dispatch()
 
+To dispatch events, just use the dispatcher
 
-## Compatible with the React ecosystem (not verified yet...)
-When using this lib you should still be able to add components from the React ecosystem, such as React-router etc. 
+    store.dispatch({
+      type: 'UPDATE_NAME',
+      name
+    })
 
 ## Motivation
 
-- React takes forever to install
-- React includes too much code
+- React is a great idea but has become bloated
 - Flux/Redux is a great idea but should be included
-- Control - too much magic going on inside the 560kb of included code in React
-
-## Status: Experimental
-Basic stuff works surprisingly well - I haven't found any big hiccups yet but I wouldn't use this lib for anything near production yet. Please report issues. 
-
+- Pure functions are a great way of solving components
 
 ## License
 
