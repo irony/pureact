@@ -1,4 +1,4 @@
-const render = require('../../lib/render')
+const render = require('../../src/render')
 const oboy = require('oboy')
 
 oboy((expect, sinon) => {

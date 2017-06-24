@@ -20,6 +20,10 @@ Include Pureact instead of React in each file:
 
 Then define your app with pure functions:
 
+    const App = (props) => <h1>Hi {props.name}</h1>
+
+Or using a component with a render function. Only render method is supported, no other lifetime or state methods are implemented (intentional to keep the pure fashion)
+
     import React, { Component } from 'pureact';
     import logo from './logo.svg';
     import './App.css';
@@ -30,7 +34,7 @@ Then define your app with pure functions:
           <div className="App">
             <div className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h2>Welcome to React</h2>
+              <h2>Welcome to React {this.props.name}!</h2>
             </div>
             <p className="App-intro">
               To get started, edit <code>src/App.js</code> and save to reload.

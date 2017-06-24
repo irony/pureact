@@ -1,5 +1,4 @@
 module.exports = function createElement (tagName, props, children) {
-  console.log(typeof tagName, tagName.constructor.name)
   if (typeof tagName === 'function') {
     const Component = tagName
     const component = (new Component(props))
