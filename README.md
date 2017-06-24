@@ -1,4 +1,4 @@
-# Pureact - what React should have been if we knew what it was when we discovered it
+# Pureact - what React should have been if we knew what it was when it was discovered
 
 This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a lightweight lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a lightweight version of redux). 
 
