@@ -1,10 +1,9 @@
-module.exports = function createElement (tagName, props, children) {
+module.exports = function createElement (tagName, props, ...children) {
   if (typeof tagName === 'function') {
     const Component = tagName
-    const component = (new Component(props))
+    const component = (new Component(Object.assign({}, props, {children})))
     return component.render ? component.render() : component
   }
-  children = Array.prototype.slice.call(arguments, 2)
   return Object.assign({tagName}, props, { children })
 }
 
