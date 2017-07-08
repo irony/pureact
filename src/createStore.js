@@ -9,5 +9,6 @@ module.exports = function createStore (reducer, initialState) {
     },
     subscribe: (callback) => listeners.push(callback)
   }
+  setTimeout(store.dispatch) // start store automatically
   return store
 }
