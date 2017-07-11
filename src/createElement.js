@@ -1,5 +1,5 @@
 module.exports = function createElement (tagName, props, ...children) {
-  if (typeof tagName === 'function') {
+  if (typeof tagName === 'function' && tagName.prototype) {
     const Component = tagName
     const component = (new Component(Object.assign({}, props, {children})))
     return component.render ? component.render() : component
