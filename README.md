@@ -71,14 +71,12 @@ Then define your app with pure functions:
 Plug it in in your render lifecycle:
 
     const App = (props) => <h1>{props.name}</h1>
-
+    let oldTree
+    
     store.subscribe(() => {
-      var state = store.getState()
-      ReactDOM.render(<App {...state} />, document.getElementById('root'))
+      const state = store.getState()
+      oldTree = ReactDOM.render(<App {...state} />, document.getElementById('root'), oldTree)
     })
-
-    // start the app by dispatching an empty event
-    store.dispatch()
 
 To dispatch events, just use the dispatcher
 
