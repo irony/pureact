@@ -10,5 +10,3 @@ module.exports = function createElement (tagName, props, ...children) {
   }
   return Object.assign({tagName}, props, { children })
 }
-
-// module.exports = require('snabbdom/h').default
