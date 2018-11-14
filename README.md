@@ -11,6 +11,11 @@ Pure functions are a fantastic way to represent a component and an entire app.
     const App = (props) => <h1>Hi {props.user}</h1>
     render(<App {...state} />, document.getElementById('root'))
     
+## Demo
+
+Mandatkollen, built with pureact: https://mandatkollen.se
+Todo app, code examples: https://github.com/irony/pureact-todo
+    
 ## Get Started
 
 Start with a blank React project
