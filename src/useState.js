@@ -5,7 +5,7 @@ function useState(initialState) {
   const current = cursor++
   const setter = (value) => {
     state[current] = typeof value === 'function' ? value() : value
-    if (useState.dispatch) Promise.resolve(state[current]).then(() => useState.restart() && useState.dispatch())
+    if (useState.dispatch) Promise.resolve(state[current]).then(() => useState.flush() && useState.dispatch())
   }
   return [state[current] || initialState, setter]
 }
@@ -14,9 +14,9 @@ function useState(initialState) {
 useState.__reset = () => {
   state = []
   cursor = []
-  useState.restart()
+  useState.flush()
 }
 
-useState.restart = () => cursor = -1
+useState.flush = () => cursor = -1
 
 module.exports = useState

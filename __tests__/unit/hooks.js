@@ -21,7 +21,7 @@ describe('hooks', () => {
       expect(setSize).toHaveProperty('apply')
       setSize(1337)
     }
-    useState.restart()
+    useState.flush()
     {
       const [size, setSize] = useState(0)
       expect(setSize).toHaveProperty('apply')
@@ -36,7 +36,7 @@ describe('hooks', () => {
       expect(setSize).toHaveProperty('apply')
       setSize(() => 1337)
     }
-    useState.restart()
+    useState.flush()
     {
       const [size, setSize] = useState(0)
       expect(setSize).toHaveProperty('apply')
@@ -51,7 +51,7 @@ describe('hooks', () => {
       setCount(1337)
       setVisits(visits + 1)
     }
-    useState.restart()
+    useState.flush()
     {
       const [count, setCount] = useState(43)
       const [visits, setVisits] = useState(111)
