@@ -1,3 +1,5 @@
+const useState = require('./useState')
+
 module.exports = function createStore (reducer, initialState) {
   let state = initialState || {}
   let promisedState = state
@@ -18,14 +20,8 @@ module.exports = function createStore (reducer, initialState) {
     subscribe: (callback) => listeners.push(callback)
   }
   if (initialState) setImmediate(store.dispatch)
+
+  // connect hooks to store
+  useState.dispatch = store.dispatch 
   return store
 }
-/*
-
-  1: login
-  2: ändra användarnamn
-  3. login igen
-  4. svaret från 1
-  5. svaret från 3
-
-*/

@@ -19,11 +19,11 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
-    "oboy": "^1.2.0"
+    "jest": "^23.6.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/*",
-    "watch": "./node_modules/.bin/mocha -w tests/*",
+    "test": "./node_modules/.bin/jest",
+    "watch": "./node_modules/.bin/jest --watch",
     "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib",
     "prepublish": "npm test && npm run build"
   }
