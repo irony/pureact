@@ -3,7 +3,7 @@ const {createStore} = require('../../src/index')
 
 describe('hooks', () => {
   beforeEach(() => {
-    useState.reset()
+    useState.__reset()
   })
   test('initializer', () => {
     expect(useState).not.toBeFalsy()
@@ -70,4 +70,17 @@ describe('hooks', () => {
       done()
     })
   })
+
+
+  test('works with promises when working with store', () => {
+    const [size, setSize] = useState(12)
+    const store = createStore(() => {})
+    setSize(Promise.resolve(1337))
+    store.subscribe(() => {
+      const [size, setSize] = useState(12)
+      expect(size).toEqual(1337)
+      done()
+    })
+  })
+
 })

@@ -5,19 +5,18 @@ function useState(initialState) {
   const current = cursor++
   const setter = (value) => {
     state[current] = typeof value === 'function' ? value() : value
-    if (useState.dispatch) useState.restart() || useState.dispatch() // if connected to a store, notify the store
+    if (useState.dispatch) Promise.resolve(state[current]).then(() => useState.restart() && useState.dispatch())
   }
   return [state[current] || initialState, setter]
 }
 
-useState.reset = () => {
+// internal, only used for tests
+useState.__reset = () => {
   state = []
   cursor = []
   useState.restart()
 }
 
-useState.restart = () => { 
-  cursor = -1
-}
+useState.restart = () => cursor = -1
 
 module.exports = useState
