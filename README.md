@@ -22,12 +22,12 @@ Start with a blank React project
 
     create-react-app my-app
     cd my-app
-    yarn start
+    npm start
 
 ## Replace React with Pureact
 
-    yarn remove react react-dom
-    yarn add pureact
+    npm remove react react-dom
+    npm install pureact
 
 Include Pureact instead of React in each file:
 
@@ -90,20 +90,25 @@ To dispatch events, just use the dispatcher
       name
     })
 
+Note that both reducers and actions can be asyncronous (please dont shoot me, it's actually really useful)
 
-## Built on top of Snabbdom
-The rendering is done with a lib called Snabbdom which has a lot of neat functions. For example, 
+    const reducer = async (state, action) => ({
+      user: await user(state.user, action)
+    })
+    
+    store.dispatch(fetch('/user').then(user => { type: 'UPDATE_USER', user})
 
-Events: https://github.com/snabbdom/snabbdom#eventlisteners-module
 
-    function clickHandler(nr) { console.log(nr, 'got clicked') }
-    return <button on={{click: [clickHandler, 1] }}
+## Hooks are also included (beta)
 
-And animations: https://github.com/snabbdom/snabbdom#the-style-module
-
-    <li style={{opacity: '1', transition: 'opacity 1s',
-          remove: {opacity: '0'}}}>...</li>
-
+    
+    import { useState } from 'pureact'
+    
+    ...
+    
+    const [name, setName] = useState('Default name')
+    
+More hooks are coming soon...
 
 ## Motivation
 
@@ -111,11 +116,11 @@ And animations: https://github.com/snabbdom/snabbdom#the-style-module
 - Redux is a great idea but should have been included
 - Pure functions are a great way of describing components
 
-## What is this for?
-I don't expect anyone to start replacing React to this anytime soon. However this lib can be seen as a way to learn another way of creating React apps where you really don't need more than a few basic concepts which means the components becomes stateless and without side-effects which makes them a lot easier to handle. 
+## Current state
+The lib has been used in production for a year without any problems. With the latest development in React which moves in the same direction (pure functions and state/hooks included you start to wonder why not just use 66 lines of clde instead of thousands? 
 
 Let me know if you miss anything important. Either send a pull request or issue. I'm going to try to keep this lib as tiny as possible.
 
 ## License
 
-MIT, &copy; Copyright 2017 Christian Landgren @ Iteam
+MIT, &copy; Copyright 2019 Christian Landgren @ Iteam
