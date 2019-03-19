@@ -96,17 +96,18 @@ Note that both reducers and actions can be asyncronous (please dont shoot me, it
       user: await user(state.user, action)
     })
     
-    store.dispatch(fetch('/user').then(user => { type: 'UPDATE_USER', user})
+    store.dispatch(() => fetch('/user').then(user => ({ type: 'UPDATE_USER', user}))
 
+(both promises and thunks are supported)
 
 ## Hooks are also included (beta)
-
     
-    import { useState } from 'pureact'
+    import React, { useState } from 'pureact'
     
-    ...
-    
-    const [name, setName] = useState('Default name')
+    const Name = (props) => {
+      const [name, setName] = useState('')
+      return <div><input type="text" value={name} onchange={e => setName(e.target.value)}/></div>
+    }
     
 More hooks are coming soon...
 
