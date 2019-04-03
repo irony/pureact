@@ -1,5 +1,4 @@
 const render = require('../../src/render')
-
 xtest('should render a tag with children', (done) => {
   const appendChild = jest.fn()
   const insertBefore = jest.fn()
@@ -13,3 +12,4 @@ xtest('should render a tag with children', (done) => {
   expect(node.appendChild).to.be.calledOnce
   done()
 })
+

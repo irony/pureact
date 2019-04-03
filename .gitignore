@@ -4,3 +4,4 @@ yarn.lock
 example/dist
 example/dist/bundle.js
 lib
+.vscode

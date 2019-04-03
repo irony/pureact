@@ -15,6 +15,7 @@ module.exports = function createStore (reducer, initialState) {
       return Promise.resolve(promisedState).then(result => {
         state = result
         listeners.forEach((listener, i) => listener(() => { delete listeners[i] }))
+        return state = result
       })
     },
     subscribe: (callback) => listeners.push(callback)
