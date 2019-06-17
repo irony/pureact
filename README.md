@@ -13,8 +13,8 @@ Pure functions are a fantastic way to represent a component and an entire app.
     
 ## Demo
 
-Mandatkollen, built with pureact: https://mandatkollen.se
-Todo app, code examples: https://github.com/irony/pureact-todo
+- Mandatkollen, built with pureact: https://mandatkollen.se (code: https://github.com/iteam1337/mandatkollen)
+- Todo app, code examples: https://pureact-todo.irony.now.sh (code: https://github.com/irony/pureact-todo )
     
 ## Get Started
 
