@@ -1,46 +1,60 @@
 # Pureact - what React should have been if we knew what it was when it was discovered
 
-This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a lightweight lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a lightweight version of redux). 
+This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a lightweight lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a lightweight version of redux).
 
-## Basic Idea
+## Get started
 
 Pure functions are a fantastic way to represent a component and an entire app.
 
-    import React, {render, createStore} from 'pureact'
+    // index.html
+    <html><body><script src="index.js"></script></html>
+
+    // index.js
+    import Pureact from 'pureact'
     const state = {user: 'John'}
     const App = (props) => <h1>Hi {props.user}</h1>
-    render(<App {...state} />, document.getElementById('root'))
-    
+    Pureact.render(<App {...state} />, document.body)
+
+    // start your app
+    $> parcel index.html
+
 ## Demo
 
 - Mandatkollen, built with pureact: https://mandatkollen.se (code: https://github.com/iteam1337/mandatkollen)
 - Todo app, code examples: https://pureact-todo.irony.now.sh (code: https://github.com/irony/pureact-todo )
-    
-## Get Started
 
-Start with a blank React project
+## Install Pureact
 
-    create-react-app my-app
-    cd my-app
-    npm start
+    npm i pureact
+    npm i -g parcel // fantastic bundler
 
-## Replace React with Pureact
+## Add pureact pragma in .babelrc
 
-    npm remove react react-dom
-    npm install pureact
+    "plugins": [
+      ["transform-react-jsx", { "pragma": "Pureact.createElement" }]
+    ]
 
-Include Pureact instead of React in each file:
-
-    import React from 'pureact' // Important! Keep the React name
-    import ReactDOM from 'pureact'
+## Start coding
 
 Then define your app with pure functions:
 
+    const props = {name}
     const App = (props) => <h1>Hi {props.user}</h1>
+    Pureact.render(<App {props} />, document.body))
+
+## Run and ship it
+
+    // starts dev server and listens to changes
+    parcel index.html
+
+    // package
+    parcel build index.html // 16kb
+
+## Also pure components
 
 ...or using components with a pure render function. Only render method is supported, no other lifetime or state methods are implemented (intentional to keep the pure fashion)
 
-    import React, { Component } from 'pureact';
+    import Pureact, { Component } from 'pureact';
     import logo from './logo.svg';
     import './App.css';
 
@@ -62,9 +76,9 @@ Then define your app with pure functions:
 
     export default App;
 
-## A lightweight redux-compatible store is also included:
+## A lightweight redux-compatible store is also included
 
-    import { createStore } from 'pureact';
+    import Pureact, { createStore } from 'pureact'
     
     const reducer = (state, action) => ({
       ...state,
@@ -80,7 +94,7 @@ Plug it in in your render lifecycle:
     
     store.subscribe(() => {
       const state = store.getState()
-      oldTree = ReactDOM.render(<App {...state} />, document.getElementById('root'), oldTree)
+      oldTree = Pureact.render(<App {...state} />, document.body, oldTree)
     })
 
 To dispatch events, just use the dispatcher
@@ -90,7 +104,7 @@ To dispatch events, just use the dispatcher
       name
     })
 
-Note that both reducers and actions can be asyncronous (please dont shoot me, it's actually really useful)
+Note that both reducers and actions can be asyncronous (!)
 
     const reducer = async (state, action) => ({
       user: await user(state.user, action)
@@ -101,15 +115,13 @@ Note that both reducers and actions can be asyncronous (please dont shoot me, it
 (both promises and thunks are supported)
 
 ## Hooks are also included (beta)
-    
+
     import React, { useState } from 'pureact'
     
     const Name = (props) => {
       const [name, setName] = useState('')
       return <div><input type="text" value={name} onchange={e => setName(e.target.value)}/></div>
     }
-    
-More hooks are coming soon...
 
 ## Motivation
 
@@ -118,10 +130,11 @@ More hooks are coming soon...
 - Pure functions are a great way of describing components
 
 ## Current state
-The lib has been used in production for a year without any problems. With the latest development in React which moves in the same direction (pure functions and state/hooks included you start to wonder why not just use 66 lines of clde instead of thousands? 
+
+The lib has been used in production for a year without any problems. With the latest development in React which moves in the same direction (pure functions and state/hooks included you start to wonder why not just use 66 lines of clde instead of thousands?
 
 Let me know if you miss anything important. Either send a pull request or issue. I'm going to try to keep this lib as tiny as possible.
 
 ## License
 
-MIT, &copy; Copyright 2019 Christian Landgren @ Iteam
+MIT, &copy; Copyright 2020 Christian Landgren @ Iteam
