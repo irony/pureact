@@ -4,7 +4,6 @@ const createStore = require('./createStore')
 const useState = require('./useState')
 const useReducer = require('./useReducer')
 const useContext = require('./useContext')
-//const createContext = require('./createContext')
 
 function Component (props) {
   this.props = props
@@ -14,7 +13,6 @@ module.exports = {
   render,
   createElement,
   createStore,
-  //createContext,
   useState,
   useReducer,
   useContext,
