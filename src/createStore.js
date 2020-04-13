@@ -20,7 +20,7 @@ module.exports = function createStore (reducer, initialState) {
     },
     subscribe: (callback) => listeners.push(callback)
   }
-  if (initialState) setImmediate(store.dispatch)
+  if (initialState) setTimeout(store.dispatch)
 
   // connect hooks to store
   useState.dispatch = store.dispatch 
