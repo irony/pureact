@@ -1,22 +1,26 @@
 # Pureact - what React should have been if we knew what it was when it was discovered
 
-This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a lightweight lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a lightweight version of redux).
+This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a small lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a minmal version of Redux).
 
 ## Get started
 
 Pure functions are a fantastic way to represent a component and an entire app.
 
+```html
     // index.html
     <html><body><script src="index.js"></script></html>
-
+```
+```javascript
     // index.js
     import Pureact from 'pureact'
     const state = {user: 'John'}
     const App = (props) => <h1>Hi {props.user}</h1>
     Pureact.render(<App {...state} />, document.body)
-
+```
+```bash
     // start your app
     $> parcel index.html
+```
 
 ## Demo
 
@@ -26,7 +30,7 @@ Pure functions are a fantastic way to represent a component and an entire app.
 ## Install Pureact
 
     npm i pureact
-    npm i -g parcel // fantastic bundler
+    npm i -g parcel
 
 ## Add pureact pragma in .babelrc
 
@@ -37,11 +41,11 @@ Pure functions are a fantastic way to represent a component and an entire app.
 ## Start coding
 
 Then define your app with pure functions:
-
+```javascript
     const props = {name}
     const App = (props) => <h1>Hi {props.user}</h1>
     Pureact.render(<App {props} />, document.body))
-
+```
 ## Run and ship it
 
     // starts dev server and listens to changes
@@ -54,6 +58,7 @@ Then define your app with pure functions:
 
 ...or using components with a pure render function. Only render method is supported, no other lifetime or state methods are implemented (intentional to keep the pure fashion)
 
+```javascript
     import Pureact, { Component } from 'pureact';
     import logo from './logo.svg';
     import './App.css';
@@ -75,9 +80,11 @@ Then define your app with pure functions:
     }
 
     export default App;
+```
 
 ## A lightweight redux-compatible store is also included
 
+```javascript
     import Pureact, { createStore } from 'pureact'
     
     const reducer = (state, action) => ({
@@ -86,9 +93,11 @@ Then define your app with pure functions:
     })
 
     const store = createStore(reducer)
+```
 
 Plug it in in your render lifecycle:
 
+```javascript
     const App = (props) => <h1>{props.name}</h1>
     let oldTree
     
@@ -96,32 +105,39 @@ Plug it in in your render lifecycle:
       const state = store.getState()
       oldTree = Pureact.render(<App {...state} />, document.body, oldTree)
     })
+```
 
 To dispatch events, just use the dispatcher
 
+```javascript
     store.dispatch({
       type: 'UPDATE_NAME',
       name
     })
+```
 
 Note that both reducers and actions can be asyncronous (!)
 
+ ```javascript
     const reducer = async (state, action) => ({
       user: await user(state.user, action)
     })
     
     store.dispatch(() => fetch('/user').then(user => ({ type: 'UPDATE_USER', user}))
+```
 
 (both promises and thunks are supported)
 
-## Hooks are also included (beta)
+## Hooks are also included (beta - only works for non-lists right now)
 
+```javascript
     import React, { useState } from 'pureact'
     
     const Name = (props) => {
       const [name, setName] = useState('')
       return <div><input type="text" value={name} onchange={e => setName(e.target.value)}/></div>
     }
+```
 
 ## Motivation
 
