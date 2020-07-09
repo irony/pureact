@@ -1,6 +1,6 @@
 {
   "name": "pureact",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Christian Landgren",
   "license": "MIT",
   "repository": {
@@ -10,7 +10,7 @@
   "main": "lib/index.js",
   "module": "src/index.js",
   "dependencies": {
-    "snabbdom": "^0.6.9"
+    "snabbdom": "^0.7.4"
   },
   "scripts": {
     "build": "npx microbundle src/*",
