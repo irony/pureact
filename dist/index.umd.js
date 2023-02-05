@@ -1,0 +1,2 @@
+!function(e){"function"==typeof define&&define.amd?define(e):e()}(function(){var e=require("./render"),t=require("./createElement"),r=require("./createStore"),n=require("./useState"),u=require("./useReducer"),o=require("./useContext");module.exports={render:e,createElement:t,createStore:r,useState:n,useReducer:u,useContext:o,Component:function(e){this.props=e,this.setState=function(){throw new Error("Unsupported. Use hooks/useState instead")}}}});
+//# sourceMappingURL=index.umd.js.map

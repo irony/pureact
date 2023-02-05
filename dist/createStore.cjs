@@ -1,0 +1,2 @@
+var e=require("./useState");module.exports=function(t,r){var n=r||{},i=n,o=[],u={getState:function(){return n},dispatch:function(e){return"function"==typeof e?e(u.dispatch,u.getState):Promise.resolve(e)===e?Promise.resolve(e).then(u.dispatch):(i=Promise.resolve(i).then(function(r){return t(r,e||{})}),Promise.resolve(i).then(function(e){return n=e,o.forEach(function(e,t){return e(function(){delete o[t]})}),n=e}))},subscribe:function(e){return o.push(e)}};return r&&setTimeout(u.dispatch),e.dispatch=u.dispatch,u};
+//# sourceMappingURL=createStore.cjs.map

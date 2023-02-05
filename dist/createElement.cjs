@@ -1,0 +1,2 @@
+function r(){return(r=Object.assign||function(r){for(var e=1;e<arguments.length;e++){var n=arguments[e];for(var t in n)Object.prototype.hasOwnProperty.call(n,t)&&(r[t]=n[t])}return r}).apply(this,arguments)}module.exports=function(e,n){var t=[].slice.call(arguments,2);if("function"==typeof e){var o=e;if(o.prototype){var a=new o(r({},n,{children:t}));return a.render?a.render():a}return o(n)}return r({tagName:e},n,{children:t})};
+//# sourceMappingURL=createElement.cjs.map
