@@ -9,7 +9,7 @@
   },
   "type": "module",
   "source": "src/index.mjs",
-  "main": "./dist/index.cjs",
+  "main": "src/index.mjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "exports": "./dist/index.modern.mjs",
