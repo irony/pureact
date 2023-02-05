@@ -14,15 +14,12 @@
   "unpkg": "./dist/index.umd.js",
   "exports": "./dist/index.modern.mjs",
   "dependencies": {
-    "snabbdom": "^0.6.9"
+    "snabbdom": "3.5.1"
   },
   "scripts": {
     "build": "npx microbundle src/*",
     "test": "jest",
     "watch": "jest --watch",
     "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "jest": "^25.3.0"
   }
 }
