@@ -9,7 +9,7 @@
   },
   "type": "module",
   "source": "src/index.mjs",
-  "main": "src/index.mjs",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "exports": "./dist/index.modern.mjs",
@@ -18,8 +18,8 @@
   },
   "scripts": {
     "build": "npx microbundle src/*",
-    "test": "jest",
-    "watch": "jest --watch",
+    "test": "npx jest",
+    "watch": "npx jest --watch",
     "prepublishOnly": "npm run build"
   }
 }
