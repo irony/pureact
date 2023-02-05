@@ -1,4 +1,4 @@
-const createStore = require('../../src/createStore')
+import createStore from '../../src/createStore.mjs'
 
 describe('store', () => {
   describe('with reducer', function () {

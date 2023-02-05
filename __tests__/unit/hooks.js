@@ -1,5 +1,4 @@
-const { useState, useReducer } = require('../../src/index')
-const { createStore } = require('../../src/index')
+import { useState, useReducer, createStore } from '../../src/index.mjs'
 
 describe('hooks', () => {
   describe('useState', () => {

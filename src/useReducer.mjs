@@ -1,8 +1,9 @@
-const createStore = require('./createStore')
+import createStore from './createStore.mjs'
+
 let state = []
 let cursor = -1
 
-function useReducer(reducer, initialState) {
+export default function useReducer(reducer, initialState) {
   const current = cursor++
   const store = (state[current] =
     state[current] || initialState.dispatch
@@ -19,5 +20,3 @@ useReducer.__reset = () => {
 }
 
 useReducer.flush = () => (cursor = -1)
-
-module.exports = useReducer

@@ -8,7 +8,7 @@
     "url": "https://github.com/irony/pureact"
   },
   "type": "module",
-  "source": "src/index.js",
+  "source": "src/index.mjs",
   "main": "./dist/index.cjs",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",

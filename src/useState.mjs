@@ -1,7 +1,7 @@
 let state = []
 let cursor = -1
 
-function useState(initialState) {
+export default function useState(initialState) {
   const current = cursor++
   const setter = (value) => {
     state[current] = typeof value === 'function' ? value() : value
@@ -21,5 +21,3 @@ useState.__reset = () => {
 }
 
 useState.flush = () => (cursor = -1)
-
-module.exports = useState

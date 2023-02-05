@@ -1,6 +1,6 @@
-const useState = require('./useState')
+import useState from './useState.mjs'
 
-module.exports = function createStore(reducer, initialState) {
+export default function createStore(reducer, initialState) {
   let state = initialState || {}
   let promisedState = state
   const listeners = []

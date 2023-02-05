@@ -1,4 +1,4 @@
-module.exports = function createElement(tagName, props, ...children) {
+export default function createElement(tagName, props, ...children) {
   if (typeof tagName === 'function') {
     const Component = tagName
     if (Component.prototype) {

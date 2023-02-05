@@ -1,12 +1,22 @@
-const snabbdom = require('snabbdom')
-const patch = snabbdom.init([
-  require('snabbdom/modules/class').default,
-  require('snabbdom/modules/props').default,
-  require('snabbdom/modules/style').default,
-  require('snabbdom/modules/attributes').default,
-  require('snabbdom/modules/eventlisteners').default,
+import {
+  init,
+  classModule,
+  propsModule,
+  styleModule,
+  attributesModule,
+  eventListenersModule,
+  h,
+} from 'snabbdom'
+
+const patch = init([
+  // Init patch function with chosen modules
+  classModule, // makes it easy to toggle classes
+  propsModule, // for setting properties on DOM elements
+  styleModule, // handles styling on elements with support for animations
+  attributesModule, // for setting attributes on DOM elements
+  eventListenersModule, // attaches event listeners
 ])
-const h = require('snabbdom/h').default
+
 const omit = (o, fields) =>
   Object.keys(o).reduce(
     (a, b) => (!fields.includes(b) ? Object.assign(a, { [b]: o[b] }) : a),
@@ -34,7 +44,8 @@ function vtree(tree) {
     children
   )
 }
-function render(tree, node, oldTree) {
+
+export default function render(tree, node, oldTree) {
   const newTree = vtree(tree)
   if (oldTree) {
     patch(oldTree, newTree)
@@ -43,4 +54,3 @@ function render(tree, node, oldTree) {
   }
   return newTree
 }
-module.exports = render
