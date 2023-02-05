@@ -19,7 +19,8 @@
   "scripts": {
     "build": "npx microbundle src/*",
     "test": "jest",
-    "watch": "jest --watch"
+    "watch": "jest --watch",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "jest": "^25.3.0"
