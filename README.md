@@ -10,13 +10,15 @@ Pure functions are a fantastic way to represent a component and an entire app.
     // index.html
     <html><body><script src="index.js"></script></html>
 ```
+
 ```javascript
-    // index.js
-    import Pureact from 'pureact'
-    const state = {user: 'John'}
-    const App = (props) => <h1>Hi {props.user}</h1>
-    Pureact.render(<App {...state} />, document.body)
+// index.js
+import Pureact from 'pureact'
+const state = { user: 'John' }
+const App = (props) => <h1>Hi {props.user}</h1>
+Pureact.render(<App {...state} />, document.body)
 ```
+
 ```bash
     // start your app
     $> parcel index.html
@@ -41,11 +43,13 @@ Pure functions are a fantastic way to represent a component and an entire app.
 ## Start coding
 
 Then define your app with pure functions:
+
 ```javascript
     const props = {name}
     const App = (props) => <h1>Hi {props.user}</h1>
     Pureact.render(<App {props} />, document.body))
 ```
+
 ## Run and ship it
 
     // starts dev server and listens to changes
@@ -59,71 +63,71 @@ Then define your app with pure functions:
 ...or using components with a pure render function. Only render method is supported, no other lifetime or state methods are implemented (intentional to keep the pure fashion)
 
 ```javascript
-    import Pureact, { Component } from 'pureact';
-    import logo from './logo.svg';
-    import './App.css';
+import Pureact, { Component } from 'pureact'
+import logo from './logo.svg'
+import './App.css'
 
-    class App extends Component {
-      render() {
-        return (
-          <div className="App">
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Welcome to React {this.props.name}!</h2>
-            </div>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
-          </div>
-        );
-      }
-    }
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h2>Welcome to React {this.props.name}!</h2>
+        </div>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
+      </div>
+    )
+  }
+}
 
-    export default App;
+export default App
 ```
 
 ## A lightweight redux-compatible store is also included
 
 ```javascript
-    import Pureact, { createStore } from 'pureact'
-    
-    const reducer = (state, action) => ({
-      ...state,
-      name: action.name // naive example
-    })
+import Pureact, { createStore } from 'pureact'
 
-    const store = createStore(reducer)
+const reducer = (state, action) => ({
+  ...state,
+  name: action.name, // naive example
+})
+
+const store = createStore(reducer)
 ```
 
 Plug it in in your render lifecycle:
 
 ```javascript
-    const App = (props) => <h1>{props.name}</h1>
-    let oldTree
-    
-    store.subscribe(() => {
-      const state = store.getState()
-      oldTree = Pureact.render(<App {...state} />, document.body, oldTree)
-    })
+const App = (props) => <h1>{props.name}</h1>
+let oldTree
+
+store.subscribe(() => {
+  const state = store.getState()
+  oldTree = Pureact.render(<App {...state} />, document.body, oldTree)
+})
 ```
 
 To dispatch events, just use the dispatcher
 
 ```javascript
-    store.dispatch({
-      type: 'UPDATE_NAME',
-      name
-    })
+store.dispatch({
+  type: 'UPDATE_NAME',
+  name,
+})
 ```
 
 Note that both reducers and actions can be asyncronous (!)
 
- ```javascript
-    const reducer = async (state, action) => ({
-      user: await user(state.user, action)
-    })
-    
-    store.dispatch(() => fetch('/user').then(user => ({ type: 'UPDATE_USER', user}))
+```javascript
+   const reducer = async (state, action) => ({
+     user: await user(state.user, action)
+   })
+
+   store.dispatch(() => fetch('/user').then(user => ({ type: 'UPDATE_USER', user}))
 ```
 
 (both promises and thunks are supported)
@@ -131,12 +135,20 @@ Note that both reducers and actions can be asyncronous (!)
 ## Hooks are also included (beta - only works for non-lists right now)
 
 ```javascript
-    import React, { useState } from 'pureact'
-    
-    const Name = (props) => {
-      const [name, setName] = useState('')
-      return <div><input type="text" value={name} onchange={e => setName(e.target.value)}/></div>
-    }
+import React, { useState } from 'pureact'
+
+const Name = (props) => {
+  const [name, setName] = useState('')
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}
+        onchange={(e) => setName(e.target.value)}
+      />
+    </div>
+  )
+}
 ```
 
 ## Motivation
