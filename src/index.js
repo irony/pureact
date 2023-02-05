@@ -5,9 +5,11 @@ const useState = require('./useState')
 const useReducer = require('./useReducer')
 const useContext = require('./useContext')
 
-function Component (props) {
+function Component(props) {
   this.props = props
-  this.setState = () => { throw new Error('Unsupported. Use hooks/useState instead') }
+  this.setState = () => {
+    throw new Error('Unsupported. Use hooks/useState instead')
+  }
 }
 module.exports = {
   render,
@@ -16,5 +18,5 @@ module.exports = {
   useState,
   useReducer,
   useContext,
-  Component
+  Component,
 }

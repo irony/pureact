@@ -1,8 +1,8 @@
 import store from '../store'
 
-export function updateName (name) {
+export function updateName(name) {
   return store.dispatch({
     type: 'UPDATE_NAME',
-    name
+    name,
   })
 }

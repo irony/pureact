@@ -4,7 +4,10 @@ let cursor = -1
 
 function useReducer(reducer, initialState) {
   const current = cursor++
-  const store = state[current] = (state[current] || initialState.dispatch ? initialState : createStore(reducer, initialState))
+  const store = (state[current] =
+    state[current] || initialState.dispatch
+      ? initialState
+      : createStore(reducer, initialState))
   return [store.getState(), store.dispatch.bind(store)]
 }
 
@@ -15,6 +18,6 @@ useReducer.__reset = () => {
   useReducer.flush()
 }
 
-useReducer.flush = () => cursor = -1
+useReducer.flush = () => (cursor = -1)
 
 module.exports = useReducer

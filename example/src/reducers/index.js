@@ -1,7 +1,7 @@
 import user from './user'
 
 const app = (state, action) => ({
-  user: user(state.user, action)
+  user: user(state.user, action),
   // ... add more here
 })
 

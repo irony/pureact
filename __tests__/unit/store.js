@@ -2,7 +2,7 @@ const createStore = require('../../src/createStore')
 
 describe('store', () => {
   describe('with reducer', function () {
-    const reducer = jest.fn( () => ({name: 'foo'}))
+    const reducer = jest.fn(() => ({ name: 'foo' }))
     const store = createStore(reducer)
 
     test('create store', (done) => {
@@ -15,9 +15,9 @@ describe('store', () => {
   })
 
   describe('with multiple reducers', function () {
-    const user = jest.fn( () => ({name: 'foo'}))
-    const did = jest.fn( () => ({what: 'bar'}))
-    const reducer = (state, action) => ({user: user(), did: did()})
+    const user = jest.fn(() => ({ name: 'foo' }))
+    const did = jest.fn(() => ({ what: 'bar' }))
+    const reducer = (state, action) => ({ user: user(), did: did() })
 
     test('create store', (done) => {
       const store = createStore(reducer)
@@ -32,12 +32,12 @@ describe('store', () => {
   })
 
   describe('dispatch', function () {
-    const reducer = jest.fn( () => ({name: 'foo'}))
+    const reducer = jest.fn(() => ({ name: 'foo' }))
     const store = createStore(reducer)
 
     test('dispatches initial data', (done) => {
-      reducer.mockReturnValue({name: 'christian'})
-      store.dispatch({type: 'EMPTY'})
+      reducer.mockReturnValue({ name: 'christian' })
+      store.dispatch({ type: 'EMPTY' })
       store.subscribe(() => {
         expect(store.getState()).toHaveProperty('name')
         expect(store.getState()).not.toHaveProperty('type')
@@ -49,15 +49,21 @@ describe('store', () => {
     test('dispatches new data', (done) => {
       const reducer = (state, action) => {
         switch (action.type) {
-          case 'LEAVING': return {
-            name: action.name,
-            last: `${action.did} the ${action.what}`
-          }
+          case 'LEAVING':
+            return {
+              name: action.name,
+              last: `${action.did} the ${action.what}`,
+            }
         }
         return state
       }
       const store = createStore(reducer)
-      const action = { type: 'LEAVING', name: 'elvis', did: 'left', what: 'building' }
+      const action = {
+        type: 'LEAVING',
+        name: 'elvis',
+        did: 'left',
+        what: 'building',
+      }
       store.dispatch(action)
       store.subscribe(() => {
         try {
@@ -73,15 +79,22 @@ describe('store', () => {
     test('supports thunks', (done) => {
       const reducer = (state, action) => {
         switch (action.type) {
-          case 'LEAVING': return {
-            name: action.name,
-            last: `${action.did} the ${action.what}`
-          }
+          case 'LEAVING':
+            return {
+              name: action.name,
+              last: `${action.did} the ${action.what}`,
+            }
         }
         return state
       }
       const store = createStore(reducer)
-      const action = (dispatch) => dispatch({ type: 'LEAVING', name: 'elvis', did: 'left', what: 'building' })
+      const action = (dispatch) =>
+        dispatch({
+          type: 'LEAVING',
+          name: 'elvis',
+          did: 'left',
+          what: 'building',
+        })
       store.subscribe(() => {
         expect(store.getState().name).toEqual('elvis')
         expect(store.getState().last).toEqual('left the building')
@@ -93,15 +106,23 @@ describe('store', () => {
     test('supports promises in actions', (done) => {
       const reducer = (state, action) => {
         switch (action.type) {
-          case 'LEAVING': return {
-            name: action.name,
-            last: `${action.did} the ${action.what}`
-          }
+          case 'LEAVING':
+            return {
+              name: action.name,
+              last: `${action.did} the ${action.what}`,
+            }
         }
         return state
       }
       const store = createStore(reducer)
-      const action = new Promise((resolve) => resolve({ type: 'LEAVING', name: 'elvis', did: 'left', what: 'building' }))
+      const action = new Promise((resolve) =>
+        resolve({
+          type: 'LEAVING',
+          name: 'elvis',
+          did: 'left',
+          what: 'building',
+        })
+      )
       store.subscribe(() => {
         expect(store.getState().name).toEqual('elvis')
         expect(store.getState().last).toEqual('left the building')
@@ -113,11 +134,13 @@ describe('store', () => {
     test('supports promises in state', (done) => {
       const reducer = (state, action) => {
         switch (action.type) {
-          case 'LEAVING': return Promise.resolve({
-            name: action.name,
-            last: `${action.did} the ${action.what}`
-          })
-          default: return state
+          case 'LEAVING':
+            return Promise.resolve({
+              name: action.name,
+              last: `${action.did} the ${action.what}`,
+            })
+          default:
+            return state
         }
       }
       const store = createStore(reducer)
@@ -130,7 +153,12 @@ describe('store', () => {
           done(err)
         }
       })
-      const action = { type: 'LEAVING', name: 'elvis', did: 'left', what: 'building' }
+      const action = {
+        type: 'LEAVING',
+        name: 'elvis',
+        did: 'left',
+        what: 'building',
+      }
       store.dispatch(action)
     })
   })

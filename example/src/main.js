@@ -9,9 +9,9 @@ import Footer from './components/footer'
 const main = function (props) {
   return (
     <div>
-      <Header {...props}/>
-      <Main {...props}/>
-      <Footer/>
+      <Header {...props} />
+      <Main {...props} />
+      <Footer />
     </div>
   )
 }

@@ -1,5 +1,5 @@
-const {useState, useReducer} = require('../../src/index')
-const {createStore} = require('../../src/index')
+const { useState, useReducer } = require('../../src/index')
+const { createStore } = require('../../src/index')
 
 describe('hooks', () => {
   describe('useState', () => {
@@ -12,8 +12,8 @@ describe('hooks', () => {
 
     test('defaultValue', () => {
       const [value, method] = useState(11)
-        expect(method).toHaveProperty('apply')
-        expect(value).toEqual(11)
+      expect(method).toHaveProperty('apply')
+      expect(value).toEqual(11)
     })
 
     test('updater works', () => {
@@ -77,7 +77,6 @@ describe('hooks', () => {
       })
     })
 
-
     xtest('works with promises when working with store', (done) => {
       const [size, setSize] = useState(12)
       expect(size).toEqual(12)
@@ -92,20 +91,18 @@ describe('hooks', () => {
   })
 
   describe('useReducer', () => {
-
     test('useReducer exists', () => {
       expect(useReducer).not.toBeFalsy()
     })
 
     it('returns an array with inital state as first item', () => {
-      const [state] = useReducer(() => {}, {foo: 'bar'})
+      const [state] = useReducer(() => {}, { foo: 'bar' })
       expect(state).toHaveProperty('foo')
       expect(state.foo).toEqual('bar')
     })
 
-
     it('returns an dispatcher', () => {
-      const [state, dispatch] = useReducer(() => {}, {foo: 'bar'})
+      const [state, dispatch] = useReducer(() => {}, { foo: 'bar' })
       expect(state).toHaveProperty('foo')
       expect(dispatch).toHaveProperty('apply')
       expect(dispatch.name).toEqual('bound dispatch')
@@ -117,43 +114,43 @@ describe('hooks', () => {
       })
 
       it('it calls the reducer when being called', (done) => {
-        const add = jest.fn((state, action) => ({count: state.count + action.number}))
-        const [state, dispatch] = useReducer(add, {count: 0})
-        expect(state).toEqual({count: 0})
-        dispatch( {number: 1} ).then(state => {
-          expect(add).toBeCalledWith({count: 0}, {number: 1})
-          expect(state).toEqual({count: 1})
+        const add = jest.fn((state, action) => ({
+          count: state.count + action.number,
+        }))
+        const [state, dispatch] = useReducer(add, { count: 0 })
+        expect(state).toEqual({ count: 0 })
+        dispatch({ number: 1 }).then((state) => {
+          expect(add).toBeCalledWith({ count: 0 }, { number: 1 })
+          expect(state).toEqual({ count: 1 })
           done()
         })
       })
 
       it('it works in a more complex example', (done) => {
-        const initialState = {count: 0}
-        function reducer (state, action) {
+        const initialState = { count: 0 }
+        function reducer(state, action) {
           switch (action.type) {
-            case 'reset': return {...action.payload}
-            case 'increment': return {count: state.count + 1}
-            case 'decrement': return {count: state.count - 1}
-            default: return state
+            case 'reset':
+              return { ...action.payload }
+            case 'increment':
+              return { count: state.count + 1 }
+            case 'decrement':
+              return { count: state.count - 1 }
+            default:
+              return state
           }
         }
-        const [state, dispatch] = useReducer(
-          reducer,
-          initialState
-        )
+        const [state, dispatch] = useReducer(reducer, initialState)
         expect(state.count).toEqual(0)
-        
-        dispatch({type: 'reset', payload: initialState})
-        dispatch({type: 'increment'})
-        dispatch({type: 'increment'})
-        dispatch({type: 'decrement'})
-          .then(state => {
-            expect(state).toEqual({count: 1})
-            done()
-          })
+
+        dispatch({ type: 'reset', payload: initialState })
+        dispatch({ type: 'increment' })
+        dispatch({ type: 'increment' })
+        dispatch({ type: 'decrement' }).then((state) => {
+          expect(state).toEqual({ count: 1 })
+          done()
+        })
       })
     })
-
   })
-
 })
