@@ -11,7 +11,7 @@ function Component(props) {
     throw new Error('Unsupported. Use hooks/useState instead')
   }
 }
-export {
+const pureact = {
   render,
   createElement,
   createStore,
@@ -20,3 +20,5 @@ export {
   useContext,
   Component,
 }
+
+export default pureact
