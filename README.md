@@ -8,22 +8,21 @@ For small pet projects you don't want to spend time on upgrading a huge dependen
 
 This is a very stratight forward starting point. Just create two files: index.html and index.js:
 
+index.html:
 ```html
-    // index.html
-    <html><body><script src="index.js"></script></html>
+<html><body><script src="index.js"></script></html>
 ```
 
+index.js:
 ```javascript
-// index.js
-import Pureact from 'pureact'
+import React, { render } from 'pureact'
 const state = { user: 'John' }
 const App = (props) => <h1>Hi {props.user}</h1>
-Pureact.render(<App {...state} />, document.body)
+render(<App {...state} />, document.body)
 ```
 
 ```bash
-    // start your app
-    $> parcel index.html
+$> parcel index.html
 ```
 
 ## Demo
