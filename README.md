@@ -2,7 +2,7 @@
 
 This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a small lib (~150 lines of code, 6kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a minmal version of Redux+Hooks).
 
-For small pet projects you don't want to spend time on upgrading a huge dependency tree when you just want a few small components, this is a perfect alternative. It has a minimal implementation where you can solve the basic needs. Render a couple of components. Updating state and fetching data from external API:s. In a few years when you want to update your code you will not need to go through a huge list of dependencies - Pureact only has one dependency.
+For small projects you don't want to spend time on upgrading a huge dependency tree when you just have a few JSX components. Pureact has a minimal implementation where you can solve the basic needs. Render a couple of components, updating state and fetching data from external API:s. In a few years when you want to update your code you will not need to go through a huge list of dependencies - Pureact only has one dependency.
 
 ## Get started
 
