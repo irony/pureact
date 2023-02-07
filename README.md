@@ -1,6 +1,6 @@
-# Pureact - what React should have been if we knew what it was when it was discovered
+# Pureact - a tiny and pure alternative to React
 
-This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a small lib (65 lines of code, 10kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a minmal version of Redux).
+This is very small implementation of the idea of React+Redux with a very light weight approach. The result is a small lib (~150 lines of code, 6kb incl dependencies gzipped) and superfast (based on snabbdom) with batteries included (a minmal version of Redux+Hooks).
 
 ## Get started
 
@@ -159,10 +159,10 @@ const Name = (props) => {
 
 ## Current state
 
-The lib has been used in production for a year without any problems. With the latest development in React which moves in the same direction (pure functions and state/hooks included you start to wonder why not just use 66 lines of clde instead of thousands?
+The lib has been used in production for four years without any problems. With the latest development in React which moves in the same direction (pure functions and state/hooks included you start to wonder why not just use 66 lines of code instead of thousands?
 
 Let me know if you miss anything important. Either send a pull request or issue. I'm going to try to keep this lib as tiny as possible.
 
 ## License
 
-MIT, &copy; Copyright 2020 Christian Landgren @ Iteam
+MIT, &copy; Copyright 2023 Christian Landgren
