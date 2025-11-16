@@ -4,18 +4,21 @@
 const omit = (o, fields) =>
   Object.keys(o).reduce(
     (a, b) => (!fields.includes(b) ? Object.assign(a, { [b]: o[b] }) : a),
-    {}
+    {},
   )
 
-const shadowRoot = (child) => ({ tagName: 'span', children: child.map(deflate) })
+const shadowRoot = (child) => ({
+  tagName: 'span',
+  children: child.map(deflate),
+})
 
 const deflate = (child) =>
   child
     ? Array.isArray(child)
       ? shadowRoot(child)
       : child.tagName
-      ? vtree(child)
-      : child
+        ? vtree(child)
+        : child
     : ''
 
 function vtree(tree) {
